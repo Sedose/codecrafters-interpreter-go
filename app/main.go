@@ -34,29 +34,23 @@ func main() {
 }
 
 func ScanTokens(input []byte) {
-	for _, ch := range input {
-		switch ch {
-		case '(':
-			fmt.Println("LEFT_PAREN ( null")
-		case ')':
-			fmt.Println("RIGHT_PAREN ) null")
-		case '{':
-			fmt.Println("LEFT_BRACE { null")
-		case '}':
-			fmt.Println("RIGHT_BRACE } null")
-		case ',':
-			fmt.Println("COMMA , null")
-		case '.':
-			fmt.Println("DOT . null")
-		case '-':
-			fmt.Println("MINUS - null")
-		case '+':
-			fmt.Println("PLUS + null")
-		case ';':
-			fmt.Println("SEMICOLON ; null")
-		case '*':
-			fmt.Println("STAR * null")
+	for _, symbol := range input {
+		if token, exists := tokenMap[symbol]; exists {
+			fmt.Printf("%s %c null\n", token, symbol)
 		}
 	}
 	fmt.Println("EOF  null")
+}
+
+var tokenMap = map[byte]string{
+	'(': "LEFT_PAREN",
+	')': "RIGHT_PAREN",
+	'{': "LEFT_BRACE",
+	'}': "RIGHT_BRACE",
+	',': "COMMA",
+	'.': "DOT",
+	'-': "MINUS",
+	'+': "PLUS",
+	';': "SEMICOLON",
+	'*': "STAR",
 }
