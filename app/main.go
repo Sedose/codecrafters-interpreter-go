@@ -40,6 +40,10 @@ func ScanTokens(input []byte) {
 			fmt.Println("LEFT_PAREN ( null")
 		case ')':
 			fmt.Println("RIGHT_PAREN ) null")
+		case '{':
+			fmt.Println("LEFT_BRACE { null")
+		case '}':
+			fmt.Println("RIGHT_BRACE } null")
 		}
 	}
 	fmt.Println("EOF  null")
